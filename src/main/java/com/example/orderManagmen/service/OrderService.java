@@ -11,4 +11,5 @@ public interface OrderService {
     void deleteOrder(Long id);
      List<Order> getAllOrders();
     List<Order> searchByProductName(String productName);
+    List<Order> getOrdersByPriceRange(double min, double max);
 }

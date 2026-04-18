@@ -47,5 +47,9 @@ import java.util.List;
             orderService.deleteOrder(id);
             return "Order deleted successfully";
         }
+        @GetMapping("/search")
+        public List<Order> searchOrders(@RequestParam String productName) {
+            return orderService.searchByProductName(productName);
+        }
     }
 

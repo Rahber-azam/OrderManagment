@@ -10,4 +10,5 @@ public interface OrderService {
     Order updateOrder(Long id, Order order);
     void deleteOrder(Long id);
      List<Order> getAllOrders();
+    List<Order> searchByProductName(String productName);
 }

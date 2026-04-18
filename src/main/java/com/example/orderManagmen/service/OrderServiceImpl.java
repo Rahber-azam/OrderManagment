@@ -61,6 +61,21 @@ public class OrderServiceImpl implements OrderService {
         // Call repository
         return orderRepository.findByProductNameContainingIgnoreCase(productName);
     }
+    @Override
+    public List<Order> getOrdersByPriceRange(double min, double max) {
+
+        // Validation
+        if (min < 0 || max < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
+
+        if (min > max) {
+            throw new IllegalArgumentException("Min price cannot be greater than max price");
+        }
+
+        // Call repository method
+        return orderRepository.findByPriceBetween(min, max);
+    }
 
     @Override
     public List<Order> getAllOrders() {

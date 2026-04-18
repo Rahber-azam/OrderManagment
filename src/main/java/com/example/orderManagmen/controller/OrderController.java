@@ -42,6 +42,7 @@ import java.util.List;
         }
 
         // ✅ DELETE ORDER (MAIN REQUIREMENT 🔥)
+//        Rahber azam
         @DeleteMapping("/{id}")
         public String deleteOrder(@PathVariable Long id) {
             orderService.deleteOrder(id);

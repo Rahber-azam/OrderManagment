@@ -52,5 +52,10 @@ import java.util.List;
         public List<Order> searchOrders(@RequestParam String productName) {
             return orderService.searchByProductName(productName);
         }
+        @GetMapping("/price")
+        public List<Order> getOrdersByPriceRange(@RequestParam double min,
+                                                 @RequestParam double max) {
+            return orderService.getOrdersByPriceRange(min, max);
+        }
     }
 

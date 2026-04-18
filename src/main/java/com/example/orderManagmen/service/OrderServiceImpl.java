@@ -50,6 +50,17 @@ public class OrderServiceImpl implements OrderService {
 
 
     }
+    @Override
+    public List<Order> searchByProductName(String productName) {
+
+        // Validate input (best practice)
+        if (productName == null || productName.isEmpty()) {
+            throw new IllegalArgumentException("Product name cannot be empty");
+        }
+
+        // Call repository
+        return orderRepository.findByProductNameContainingIgnoreCase(productName);
+    }
 
     @Override
     public List<Order> getAllOrders() {
